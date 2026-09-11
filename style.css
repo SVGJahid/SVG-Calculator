@@ -1,0 +1,1186 @@
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    margin:0;
+    padding:0;
+
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    overflow:hidden;
+
+    color:white;
+
+    background:
+    radial-gradient(
+        circle at 10% 10%,
+        #075aa9,
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 90%,
+        #541a8d,
+        transparent 30%
+    ),
+
+    linear-gradient(
+        135deg,
+        #020611,
+        #071a35,
+        #020611
+    );
+
+}
+
+
+/* =================================
+   LOADING SCREEN
+================================= */
+
+#loadingScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #0c3a70,
+        #020712 70%
+    );
+
+    transition:
+    opacity .45s ease,
+    visibility .45s ease;
+
+}
+
+
+#loadingScreen.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+
+/* =================================
+   INTRO ANIMATION
+================================= */
+
+.intro{
+
+    position:relative;
+
+    width:180px;
+    height:180px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+}
+
+
+.introGlow{
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:#00bfff;
+
+    filter:blur(42px);
+
+    opacity:.4;
+
+    animation:
+    glow 1.3s
+    ease-in-out
+    infinite alternate;
+
+}
+
+
+@keyframes glow{
+
+    from{
+        transform:scale(.7);
+        opacity:.25;
+    }
+
+    to{
+        transform:scale(1.2);
+        opacity:.55;
+    }
+
+}
+
+
+/* RINGS */
+
+.orbit{
+
+    position:absolute;
+
+    width:170px;
+    height:72px;
+
+    border:2px solid #16c9ff;
+
+    border-radius:50%;
+
+    opacity:.65;
+
+}
+
+
+.orbit1{
+
+    transform:rotate(25deg);
+
+    animation:
+    orbitOne
+    2s
+    linear
+    infinite;
+
+}
+
+
+.orbit2{
+
+    transform:rotate(-55deg);
+
+    border-color:#985cff;
+
+    animation:
+    orbitTwo
+    2.7s
+    linear
+    infinite;
+
+}
+
+
+@keyframes orbitOne{
+
+    from{
+        transform:rotate(25deg);
+    }
+
+    to{
+        transform:rotate(385deg);
+    }
+
+}
+
+
+@keyframes orbitTwo{
+
+    from{
+        transform:rotate(-55deg);
+    }
+
+    to{
+        transform:rotate(-415deg);
+    }
+
+}
+
+
+/* =================================
+   3D CALCULATOR LOGO
+================================= */
+
+.introCalculator{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100px;
+    height:125px;
+
+    padding:10px;
+
+    border-radius:23px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #2699df,
+        #08274b
+    );
+
+    border:
+    1px solid #54d2ff88;
+
+    box-shadow:
+
+    0 16px 35px #000c,
+
+    inset 4px 4px 8px #ffffff22,
+
+    inset -5px -5px 10px #000c;
+
+    animation:
+    floatCalculator
+    1.5s
+    ease-in-out
+    infinite alternate;
+
+}
+
+
+@keyframes floatCalculator{
+
+    from{
+
+        transform:
+        perspective(500px)
+        rotateX(7deg)
+        rotateY(-8deg)
+        translateY(5px);
+
+    }
+
+    to{
+
+        transform:
+        perspective(500px)
+        rotateX(7deg)
+        rotateY(-8deg)
+        translateY(-6px);
+
+    }
+
+}
+
+
+.introScreen{
+
+    height:30px;
+
+    margin-bottom:9px;
+
+    border-radius:8px;
+
+    background:#020912;
+
+    box-shadow:
+    inset 2px 2px 6px #000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    padding:5px;
+
+}
+
+
+.introScreen span{
+
+    width:25px;
+    height:5px;
+
+    border-radius:5px;
+
+    background:#26caff;
+
+    box-shadow:
+    0 0 8px #26caff;
+
+    animation:
+    screenLight
+    .8s
+    ease-in-out
+    infinite alternate;
+
+}
+
+
+@keyframes screenLight{
+
+    from{
+        opacity:.3;
+        width:12px;
+    }
+
+    to{
+        opacity:1;
+        width:28px;
+    }
+
+}
+
+
+.introKeys{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:6px;
+
+}
+
+
+.introKeys div{
+
+    height:27px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:7px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    background:
+    linear-gradient(
+        145deg,
+        #287dc1,
+        #09274d
+    );
+
+    box-shadow:
+    0 3px 5px #0009;
+
+}
+
+
+.introKeys .eq{
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffb51c,
+        #ed5c00
+    );
+
+}
+
+
+/* =================================
+   INTRO TEXT
+================================= */
+
+.introTitle{
+
+    width:86%;
+
+    max-width:400px;
+
+    margin-top:8px;
+
+    text-align:center;
+
+}
+
+
+.introName{
+
+    font-size:25px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+
+.introName span{
+
+    color:#19d8ff;
+
+}
+
+
+.introSubtitle{
+
+    margin-top:5px;
+
+    color:#86a9cc;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+}
+
+
+#loadingPercent{
+
+    min-height:32px;
+
+    margin-top:17px;
+
+    font-size:27px;
+
+    font-weight:bold;
+
+}
+
+
+.progress{
+
+    width:100%;
+
+    height:9px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#01050a;
+
+}
+
+
+#progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00ddff,
+        #2389ff,
+        #a34dff
+    );
+
+    box-shadow:
+    0 0 14px #00caff;
+
+}
+
+
+#loadingText{
+
+    margin-top:8px;
+
+    color:#6388ac;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =================================
+   MAIN APP
+================================= */
+
+#app{
+
+    width:100vw;
+
+    height:100vh;
+
+    height:100dvh;
+
+    padding:6px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    opacity:0;
+
+    transform:scale(.96);
+
+    transition:
+    opacity .4s ease,
+    transform .4s ease;
+
+}
+
+
+#app.ready{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+/* =================================
+   CALCULATOR BODY
+================================= */
+
+.calculator{
+
+    width:100%;
+
+    height:calc(100vh - 12px);
+
+    height:calc(100dvh - 12px);
+
+    max-width:500px;
+
+    padding:12px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #123e69,
+        #061326 52%,
+        #102e51
+    );
+
+    border:
+    1px solid #238ad588;
+
+    box-shadow:
+
+    0 20px 50px #000d,
+
+    inset 4px 4px 10px #ffffff15,
+
+    inset -6px -6px 14px #000b;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:9px;
+
+    flex-shrink:0;
+
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.smallLogo{
+
+    width:42px;
+    height:42px;
+
+    padding:5px;
+
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #18a9f2,
+        #061a39
+    );
+
+    box-shadow:
+    0 0 15px #00bfff44;
+
+}
+
+
+.logoGrid{
+
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:3px;
+
+}
+
+
+.logoGrid div{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:4px;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    background:#0b3560;
+
+}
+
+
+.logoGrid div:last-child{
+
+    background:#ff7900;
+
+}
+
+
+.brandName{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+
+
+.brandSub{
+
+    margin-top:2px;
+
+    color:#78a5cf;
+
+    font-size:8px;
+
+}
+
+
+.headerButtons{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+
+.topButton{
+
+    width:40px;
+    height:40px;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:13px;
+
+    color:white;
+
+    font-size:19px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #174d80,
+        #07182e
+    );
+
+    box-shadow:
+
+    0 5px 10px #0009,
+
+    inset 2px 2px 5px #ffffff18,
+
+    inset -3px -3px 6px #000b;
+
+}
+
+
+.topButton:active{
+
+    transform:scale(.92);
+
+}
+
+
+/* =================================
+   COMPACT MAIN SCREEN
+================================= */
+
+.display{
+
+    width:100%;
+
+    height:105px;
+
+    flex-shrink:0;
+
+    padding:10px 16px;
+
+    margin-bottom:9px;
+
+    border-radius:21px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #071321,
+        #020810
+    );
+
+    border:
+    1px solid #2679ac66;
+
+    box-shadow:
+
+    inset 7px 7px 15px #000d,
+
+    inset -2px -2px 6px #ffffff08,
+
+    0 5px 16px #0009;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+.readyText{
+
+    height:15px;
+
+    text-align:right;
+
+    color:#38a9eb;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+
+#previous{
+
+    height:18px;
+
+    margin-top:1px;
+
+    text-align:right;
+
+    color:#5d7e9f;
+
+    font-size:12px;
+
+    line-height:18px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+}
+
+
+#screen{
+
+    width:100%;
+
+    margin-top:1px;
+
+    text-align:right;
+
+    color:#f7fbff;
+
+    font-size:36px;
+
+    line-height:40px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+/* =================================
+   KEYPAD
+================================= */
+
+.keypad{
+
+    flex:1;
+
+    min-height:0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    grid-template-rows:
+    repeat(5,1fr);
+
+    gap:7px;
+
+}
+
+
+.key{
+
+    width:100%;
+
+    height:100%;
+
+    min-height:0;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:16px;
+
+    color:white;
+
+    font-size:
+    clamp(19px,6vw,27px);
+
+    font-weight:bold;
+
+    background:
+    linear-gradient(
+        145deg,
+        #16497b,
+        #071a33
+    );
+
+    box-shadow:
+
+    0 6px 11px #000a,
+
+    inset 3px 3px 6px #ffffff18,
+
+    inset -4px -4px 7px #000b;
+
+    touch-action:manipulation;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    transition:none;
+
+}
+
+
+.key:active{
+
+    transform:
+    scale(.95)
+    translateY(2px);
+
+}
+
+
+.blue{
+
+    background:
+    linear-gradient(
+        145deg,
+        #159de8,
+        #07519b
+    ) !important;
+
+}
+
+
+.red{
+
+    background:
+    linear-gradient(
+        145deg,
+        #f65375,
+        #851d3b
+    ) !important;
+
+}
+
+
+.orange{
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffb51c,
+        #ed5c00
+    ) !important;
+
+}
+
+
+.zero{
+
+    grid-column:
+    span 2;
+
+}
+
+
+/* =================================
+   PANELS
+================================= */
+
+.panel{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:-100%;
+
+    transform:
+    translateX(-50%);
+
+    width:100%;
+
+    max-width:500px;
+
+    padding:20px;
+
+    border-radius:
+    26px 26px 0 0;
+
+    background:
+    linear-gradient(
+        145deg,
+        #123b62,
+        #061326
+    );
+
+    box-shadow:
+    0 -20px 50px #000d;
+
+    z-index:100000;
+
+    transition:
+    bottom .15s ease;
+
+}
+
+
+.panel.show{
+
+    bottom:0;
+
+}
+
+
+.closeButton{
+
+    float:right;
+
+    width:37px;
+    height:37px;
+
+    border:0;
+
+    border-radius:11px;
+
+    color:white;
+
+    background:#ffffff18;
+
+    font-size:22px;
+
+}
+
+
+.panel h2{
+
+    margin-top:0;
+
+}
+
+
+.historyItem{
+
+    padding:10px 0;
+
+    border-bottom:
+    1px solid #ffffff12;
+
+}
+
+
+.clearButton{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border:0;
+
+    border-radius:11px;
+
+    color:white;
+
+    background:#a62e4c;
+
+    font-weight:bold;
+
+}
+
+
+.settingRow{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:13px 0;
+
+    border-bottom:
+    1px solid #ffffff12;
+
+}
+
+
+/* =================================
+   SMALL PHONE
+================================= */
+
+@media(max-width:380px){
+
+    .calculator{
+
+        padding:9px;
+
+        border-radius:23px;
+
+    }
+
+
+    .smallLogo{
+
+        width:38px;
+        height:38px;
+
+    }
+
+
+    .brandName{
+
+        font-size:15px;
+
+    }
+
+
+    .topButton{
+
+        width:35px;
+        height:35px;
+
+    }
+
+
+    .display{
+
+        height:96px;
+
+        padding:9px 13px;
+
+    }
+
+
+    #screen{
+
+        font-size:32px;
+
+        line-height:36px;
+
+    }
+
+
+    .keypad{
+
+        gap:6px;
+
+    }
+
+
+    .key{
+
+        border-radius:14px;
+
+        font-size:20px;
+
+    }
+
+}

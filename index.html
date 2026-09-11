@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="theme-color" content="#020812">
+
+<title>SVG Calculator</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     INTRO / LOADING
+========================= -->
+
+<div id="loadingScreen">
+
+    <div class="intro">
+
+        <div class="orbit orbit1"></div>
+        <div class="orbit orbit2"></div>
+
+        <div class="introCalculator">
+
+            <div class="introScreen">
+                <span></span>
+            </div>
+
+            <div class="introKeys">
+
+                <div>+</div>
+                <div>−</div>
+                <div>×</div>
+                <div class="eq">=</div>
+
+            </div>
+
+        </div>
+
+        <div class="introGlow"></div>
+
+    </div>
+
+
+    <div class="introTitle">
+
+        <div class="introName">
+            <span>SVG</span> CALCULATOR
+        </div>
+
+        <div class="introSubtitle">
+            SMART CALCULATION
+        </div>
+
+        <div id="loadingPercent">
+            0%
+        </div>
+
+        <div class="progress">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+        <div id="loadingText">
+            STARTING...
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN APP
+========================= -->
+
+<div id="app">
+
+    <div class="calculator">
+
+
+        <!-- HEADER -->
+
+        <div class="header">
+
+            <div class="brand">
+
+                <div class="smallLogo">
+
+                    <div class="logoGrid">
+
+                        <div>+</div>
+                        <div>−</div>
+                        <div>×</div>
+                        <div>=</div>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="brandName">
+                        SVG Calculator
+                    </div>
+
+                    <div class="brandSub">
+                        SMART CALCULATION
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="headerButtons">
+
+                <button
+                class="topButton"
+                id="historyButton">
+                    ↶
+                </button>
+
+                <button
+                class="topButton"
+                id="settingsButton">
+                    ⚙
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- DISPLAY -->
+
+        <div class="display">
+
+            <div class="readyText">
+                READY
+            </div>
+
+            <div id="previous"></div>
+
+            <div id="screen">
+                0
+            </div>
+
+        </div>
+
+
+        <!-- KEYPAD -->
+
+        <div class="keypad">
+
+            <button class="key red" data-key="AC">
+                AC
+            </button>
+
+            <button class="key red" data-key="DEL">
+                DEL
+            </button>
+
+            <button class="key blue" data-key="%">
+                %
+            </button>
+
+            <button class="key blue" data-key="/">
+                ÷
+            </button>
+
+
+            <button class="key" data-key="7">
+                7
+            </button>
+
+            <button class="key" data-key="8">
+                8
+            </button>
+
+            <button class="key" data-key="9">
+                9
+            </button>
+
+            <button class="key blue" data-key="*">
+                ×
+            </button>
+
+
+            <button class="key" data-key="4">
+                4
+            </button>
+
+            <button class="key" data-key="5">
+                5
+            </button>
+
+            <button class="key" data-key="6">
+                6
+            </button>
+
+            <button class="key blue" data-key="-">
+                −
+            </button>
+
+
+            <button class="key" data-key="1">
+                1
+            </button>
+
+            <button class="key" data-key="2">
+                2
+            </button>
+
+            <button class="key" data-key="3">
+                3
+            </button>
+
+            <button class="key blue" data-key="+">
+                +
+            </button>
+
+
+            <button class="key zero" data-key="0">
+                0
+            </button>
+
+            <button class="key" data-key=".">
+                .
+            </button>
+
+            <button class="key orange" data-key="=">
+                =
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HISTORY PANEL
+========================= -->
+
+<div id="historyPanel" class="panel">
+
+    <button
+    class="closeButton"
+    id="historyClose">
+        ×
+    </button>
+
+    <h2>History</h2>
+
+    <div id="historyList">
+        No calculations yet.
+    </div>
+
+    <button
+    class="clearButton"
+    id="clearHistory">
+        Clear History
+    </button>
+
+</div>
+
+
+<!-- =========================
+     SETTINGS PANEL
+========================= -->
+
+<div id="settingsPanel" class="panel">
+
+    <button
+    class="closeButton"
+    id="settingsClose">
+        ×
+    </button>
+
+    <h2>Settings</h2>
+
+
+    <div class="settingRow">
+
+        <span>Theme</span>
+
+        <select id="theme">
+
+            <option value="dark">
+                Dark
+            </option>
+
+            <option value="light">
+                Light
+            </option>
+
+            <option value="system">
+                System
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="settingRow">
+
+        <span>Button Vibration</span>
+
+        <input
+        type="checkbox"
+        id="vibration"
+        checked>
+
+    </div>
+
+
+    <div class="settingRow">
+
+        <span>Version</span>
+
+        <span>1.0.0</span>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
