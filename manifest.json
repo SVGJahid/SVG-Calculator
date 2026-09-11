@@ -1,0 +1,17 @@
+{
+  "name": "SVG Calculator",
+  "short_name": "Calculator",
+  "description": "A beautiful modern SVG Calculator",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07152e",
+  "theme_color": "#07152e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
